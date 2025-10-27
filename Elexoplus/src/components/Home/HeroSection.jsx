@@ -213,7 +213,7 @@ export default function HeroSection() {
             
             {/* NEW: Heading (Color changed to text-black) */}
             <h1 className="text-4xl md:text-5xl mt-20 font-bold text-black mb-6 text-center md:text-left">
-                  Comfort <br /> Needs No <br /> Compromise
+                  Comfort <br /> Without <br /> Compromise
             </h1>
             
             {/* UPDATED: Replaced h1 with new paragraph (Color changed to text-gray-800) */}
