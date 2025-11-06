@@ -7,12 +7,13 @@ import ContactPage from './pages/ContactUs'
 import AboutPage from './pages/AboutUs'
 import Store from './pages/Store'
 import CartPage from './pages/CartPage'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <Router>
       <Header />
-
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<SingleProductPage />} />

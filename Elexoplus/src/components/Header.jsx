@@ -14,24 +14,26 @@ const Header = () => {
 
     // Effect to handle scroll event
     useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+    let lastScrollY = window.scrollY;
 
-            if (currentScrollY > window.innerHeight) {
-                // User is below the 100vh threshold, hide the navbar
-                setIsVisible(false);
-            } else {
-                // User is at the top of the page (within 100vh), show the navbar
-                setIsVisible(true);
-            }
-        };
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
 
-        // Add passive: true for better scroll performance
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            // User scrolling down
+            setIsVisible(false);
+        } else {
+            // User scrolling up
+            setIsVisible(true);
+        }
 
-        // Cleanup function to remove the event listener
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []); // Empty dependency array, as we no longer track lastScrollY
+        lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
 
     return (
         <>
